@@ -1,0 +1,15 @@
+.PHONY:beat
+beat:
+	apt update -y
+	apt upgrade -y
+	apt install -y curl ca-certificates
+	curl -L -O https://artifacts.elastic.co/downloads/beats/packetbeat/packetbeat-8.1.3-linux-x86_64.tar.gz
+	tar xzvf packetbeat-8.1.3-linux-x86_64.tar.gz
+	sed -i 's/#setup.dashboards.enabled: false/setup.dashboard.enabled: true\n setup.template.overwrite: false/g' ./packetbeat-8.1.3-linux-x86_64/packetbeat.yml 
+	sed -i 's/#hosts: ["localhost:9200"]/hosts: ["elasticsearch:9200"]/g' ./packetbeat-8.1.3-linux-x86_64/packetbeat.yml
+	sed -i 's/#username: "elastic"/username: "elastic"/g' ./packetbeat-8.1.3-linux-x86_64/packetbeat.yml
+	sed -i 's/#password: "changeme"/password: "changeme"/g' ./packetbeat-8.1.3-linux-x86_64/packetbeat.yml 
+	sed -i 's/#host: "localhost:5601"/host: "elasticsearch:5601"\n  username: "elastic"\n  password: "changeme"/g' ./packetbeat-8.1.3-linux-x86_64/packetbeat.yml
+	./packetbeat-8.1.3-linux-x86_64/packetbeat setup -e
+	chown root ./packetbeat-8.1.3-linux-x86_64/packetbeat.yml
+	./packetbeat-8.1.3-linux-x86_64/packetbeat -e
