@@ -1,0 +1,23 @@
+FROM kalilinux/kali-rolling
+
+RUN apt update
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN apt install -y openssh-server x11-xserver-utils
+
+RUN echo 'root:password' | chpasswd
+RUN echo "Port 22" >> /etc/ssh/sshd_config
+RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+RUN echo "X11Forwarding yes" >> /etc/ssh/sshd_config
+RUN echo "X11UseLocalhost no" >> /etc/ssh/sshd_config
+
+ADD start.sh /start.sh
+
+EXPOSE 22
+
+CMD ./start.sh
+
+#export DISPLAY=host.docker.internal:0.0
+#xhost +
+#kali-linux-default
+
