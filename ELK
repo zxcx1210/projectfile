@@ -3,6 +3,6 @@ install: #downlaod & setting ELK
 	git clone https://github.com/deviantony/docker-elk.git
 	#change user password
 	#vim .env(change pw)
-docker-compose -f ./docker-elk/docker-compose.yml up -d
+	docker-compose -f ./docker-elk/docker-compose.yml up -d
 check:
 	curl http://localhost:9200 -u elastic:changeme
