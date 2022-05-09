@@ -3,7 +3,7 @@ install:#build images
 	git clone https://github.com/guan4tou2/docker-kali-x11.git
 	docker build -t target:latest . -f=machines/targetfile
 	chmod 755 ./docker-kali-x11/start.sh
-	docker build -t attack . -f=machines/attack
+	docker build -t attack . -f=machines/attackfile
 	docker-compose -f ./machines/docker-compose.yml up -d
 stop:#stop the containers
 	docker-compose -f ./machines/docker-compose.yml stop
