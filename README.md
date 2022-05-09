@@ -1,8 +1,8 @@
 # projectfile
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt-get install docker.io -y
-sudo apt install curl -y
+# sudo apt update -y
+# sudo apt upgrade -y
+# sudo apt-get install docker.io -y
+# sudo apt install curl -y
 sudo groupadd docker
 sudo gpasswd -a $USER docker
 #如果直接用install docker-compose會產生錯誤
