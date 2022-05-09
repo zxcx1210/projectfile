@@ -7,7 +7,7 @@ services:
     tty: true
     stdin_open: true
     command: bash
-    network:
+    networks:
       - Cnet
 
   attack:
@@ -16,7 +16,7 @@ services:
     tty: true
     stdin_open: true
     command: bash
-    network:
+    networks:
       - Cnet
 networks:
   Cnet:
