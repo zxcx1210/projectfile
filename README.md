@@ -11,6 +11,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo apt install make -y
 make -f ELK install
-make -f machines install
+make -f machine install
 sudo make -f  beat beat
 
