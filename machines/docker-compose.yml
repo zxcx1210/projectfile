@@ -9,6 +9,7 @@ services:
     command: bash
     networks:
       - Cnet
+      - docker-elk_elk
 
   attack:
     image: 'attack'
@@ -21,3 +22,5 @@ services:
 networks:
   Cnet:
     driver: bridge
+  docker-elk_elk:
+    external: true
