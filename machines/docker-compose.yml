@@ -1,23 +1,23 @@
-version: ‘3.5’
+version: '3.5'
 
-service:
+services:
   target:
-    image: ‘target’
+    image: 'target'
     container_name: target
     tty: true
     stdin_open: true
     command: bash
     network:
-Cnet
+      - Cnet
 
   attack:
-    image: ‘attack’
+    image: 'attack'
     container_name: attack
     tty: true
     stdin_open: true
     command: bash
     network:
-Cnet
+      - Cnet
 networks:
   Cnet:
     driver: bridge
