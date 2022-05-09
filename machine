@@ -1,5 +1,5 @@
-.PHONY: build compose stop remove
-build:#build images
+.PHONY: install compose stop remove
+install:#build images
 	git clone https://github.com/guan4tou2/docker-kali-x11.git
 	docker build -t target:latest . -f=machines/targetfile
 	chmod 755 ./docker-kali-x11/start.sh
