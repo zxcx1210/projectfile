@@ -11,7 +11,7 @@ RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 RUN echo "X11Forwarding yes" >> /etc/ssh/sshd_config
 RUN echo "X11UseLocalhost no" >> /etc/ssh/sshd_config
 
-ADD start.sh /start.sh
+ADD ./machines/start.sh /start.sh
 
 EXPOSE 22
 
