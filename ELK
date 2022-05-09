@@ -1,8 +1,7 @@
 .PHONY: install check
 install: #downlaod & setting ELK
 	git clone https://github.com/deviantony/docker-elk.git
-	#change user password
-	#vim .env(change pw)
+	#sed -i 's/hosts: ["localhost:9200"]/hosts: ["elasticsearch:9200"]/g' .env
 	docker-compose -f ./docker-elk/docker-compose.yml up -d
 check:
 	curl http://localhost:9200 -u elastic:changeme
