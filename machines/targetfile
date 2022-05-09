@@ -1,5 +1,6 @@
-FROM ubuntu
+FROM httpd:2.4
 MAINTAINER weichen
 RUN apt update -y
 RUN apt upgrade -y
+COPY ./public-html/ /usr/local/apache2/htdocs/
 CMD ["/bin/bash","run"]
