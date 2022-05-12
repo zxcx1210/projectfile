@@ -1,6 +1,9 @@
 FROM httpd:2.4
 MAINTAINER weichen
-RUN apt update -y
+RUN apt update
 RUN apt upgrade -y
+RUN apt install make -y
 COPY ./public-html/ /usr/local/apache2/htdocs/
+COPY ./beat /
+RUN make -f beat beat
 CMD ["/bin/bash","run"]
