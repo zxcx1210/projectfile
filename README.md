@@ -12,4 +12,3 @@
 * sudo apt install make -y
 * make -f ELK install
 * make -f machine install
-* sudo make -f  beat beat
