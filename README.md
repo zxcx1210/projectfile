@@ -1,5 +1,5 @@
 # projectfile
-* sudo apt update -y
+* sudo apt update 
 * sudo apt upgrade -y
 * sudo apt-get install docker.io -y
 * sudo apt install curl -y
